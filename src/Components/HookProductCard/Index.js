@@ -19,7 +19,6 @@ function ProductCard(search) {
   }, []);
 
   const productsInfo = useSelector((state) => state.products);
-  console.log("here", productsInfo.products);
 
   return productsInfo.loading ? (
     <h2>Loading</h2>
@@ -51,8 +50,10 @@ function ProductCard(search) {
                       <ListGroupItem>Rating {product.avgRating}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Card.Link href="./pages/SingleProduct">Detail</Card.Link>
-                      <Card.Link href="#">Buy</Card.Link>
+                      <Card.Link href={"/products/" + product._id}>
+                        Detail
+                      </Card.Link>
+                      <Card.Link href="/products">Buy</Card.Link>
                     </Card.Body>
                   </Card>
                 </Col>

@@ -10,7 +10,7 @@ const NavbarTiktak = () => {
             <Navbar.Brand href="/">TikTak</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/products">All Products</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
+              <Nav.Link href="./Register">Register</Nav.Link>
               <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
           </Container>

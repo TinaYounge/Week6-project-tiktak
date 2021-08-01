@@ -47,14 +47,32 @@ export const fetchSearchProduct = (search) => {
       .get(`http://cs-ecom-be.herokuapp.com/api/products?search=${search}`)
       .then((response) => {
         const product = response.data;
-        console.log("1 cai thoi", product);
-        console.log("searchxuongtoiaction", search);
 
         dispatch(fetchProductSuccess(product));
       })
       .catch((Error) => {
         const errorMge = Error.message;
-        console.log("searcbox", errorMge);
+        dispatch(fetchProductFail(errorMge));
+      });
+  };
+};
+
+export const fetchSingleProduct = (id) => {
+  console.log("idhere", id);
+  return (dispatch) => {
+    dispatch(fetchProductRequest);
+    console.log("idhere2", id);
+    axios
+      .get(`http://cs-ecom-be.herokuapp.com/api/products/${id.id}`)
+      .then((response) => {
+        const product = response.data;
+        console.log("checkfail", product);
+
+        dispatch(fetchProductSuccess(product));
+      })
+      .catch((Error) => {
+        const errorMge = Error.message;
+        console.log(errorMge);
         dispatch(fetchProductFail(errorMge));
       });
   };

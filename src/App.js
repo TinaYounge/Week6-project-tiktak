@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AllProducts from "./pages/AllProducts";
 import SingleProduct from "./pages/SingleProduct";
 import Homepage from "./pages/Homepage";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/products/:id" component={SingleProduct} />
         <Route exact path="/products" component={AllProducts} />
         <Route exact path="/" component={Homepage} />
+        <Route exact path="/Register" component={Register} />
       </Switch>
     </Router>
   );
