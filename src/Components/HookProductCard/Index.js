@@ -27,7 +27,6 @@ function ProductCard(search) {
     <h2>{productsInfo.error}</h2>
   ) : (
     <div>
-      <h2>some card here</h2>
       <Container>
         <CardGroup className="flex">
           {productsInfo &&
@@ -49,7 +48,7 @@ function ProductCard(search) {
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                       <ListGroupItem>Price: {product.price} VND</ListGroupItem>
-                      <ListGroupItem>Rating</ListGroupItem>
+                      <ListGroupItem>Rating {product.avgRating}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                       <Card.Link href="./pages/SingleProduct">Detail</Card.Link>

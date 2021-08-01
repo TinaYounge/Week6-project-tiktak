@@ -18,7 +18,7 @@ function SearchBox() {
           <Col sm="10">
             <Form.Control
               type="text"
-              placeholder="Example: Mac"
+              placeholder="Example: CTO"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
