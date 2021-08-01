@@ -1,0 +1,6 @@
+.flex {
+  display: flex;
+}
+.card-space {
+  justify-content: space-between !important;
+}
