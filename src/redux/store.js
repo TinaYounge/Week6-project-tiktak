@@ -4,9 +4,11 @@ import { combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
 import ProductReducer from "./Product/ProductReducer";
+import { UserForm } from "./Register/RegisterAction";
 
 const rootReducer = combineReducers({
   products: ProductReducer,
+  register: UserForm,
 });
 
 const store = createStore(

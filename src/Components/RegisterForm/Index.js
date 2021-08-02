@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { UserForm } from "../../redux/Register/RegisterAction";
 
 function RegisterForm() {
   const [state, setState] = useState({
@@ -8,6 +9,7 @@ function RegisterForm() {
     email: "",
     password: "",
   });
+  console.log("tate", state);
   const dispatch = useDispatch();
   return (
     <div>
@@ -44,7 +46,11 @@ function RegisterForm() {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-        <Button variant="primary" type="submit" onClick={() => dispatch(state)}>
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() => dispatch(UserForm(state))}
+        >
           Submit
         </Button>
       </Form>

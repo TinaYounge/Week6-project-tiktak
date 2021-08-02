@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { fetchSearchProduct } from "../../redux/Product/ProductAction";
 
@@ -7,12 +7,11 @@ function SearchBox() {
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("");
-  console.log("seracg", search);
   useEffect(() => {
     fetchSearchProduct(search)(dispatch);
-  }, []);
+  }, [dispatch, search]);
   return (
-    <div>
+    <Container>
       <Form>
         <Form.Group as={Row} className="mb-3">
           <Col sm="10">
@@ -30,7 +29,7 @@ function SearchBox() {
           </Form.Label>
         </Form.Group>
       </Form>
-    </div>
+    </Container>
   );
 }
 

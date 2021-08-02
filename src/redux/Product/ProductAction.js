@@ -58,15 +58,12 @@ export const fetchSearchProduct = (search) => {
 };
 
 export const fetchSingleProduct = (id) => {
-  console.log("idhere", id);
   return (dispatch) => {
     dispatch(fetchProductRequest);
-    console.log("idhere2", id);
     axios
       .get(`http://cs-ecom-be.herokuapp.com/api/products/${id.id}`)
       .then((response) => {
         const product = response.data;
-        console.log("checkfail", product);
 
         dispatch(fetchProductSuccess(product));
       })
