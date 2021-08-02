@@ -16,7 +16,7 @@ function ProductCard(search) {
   const dispatch = useDispatch();
   useEffect(() => {
     fetchSearchProduct(search)(dispatch);
-  }, []);
+  }, [search, dispatch]);
 
   const productsInfo = useSelector((state) => state.products);
 
@@ -39,7 +39,7 @@ function ProductCard(search) {
                     <Card.Img
                       variant="top"
                       src={product.imageUrls[0]}
-                      alt="picturehere"
+                      alt="picture here"
                     />
                     <Card.Body>
                       <Card.Title>{product.name}</Card.Title>

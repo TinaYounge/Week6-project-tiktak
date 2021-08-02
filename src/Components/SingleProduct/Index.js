@@ -8,7 +8,7 @@ function DetailProduct(id) {
 
   useEffect(() => {
     fetchSingleProduct(id)(dispatch);
-  }, []);
+  }, [id, dispatch]);
   const detailProducts = useSelector((state) => state.products);
   const detailProduct = detailProducts.products;
   return detailProduct.loading ? (
