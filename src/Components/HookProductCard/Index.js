@@ -7,21 +7,22 @@ import {
   ListGroup,
   ListGroupItem,
   Row,
+  Spinner,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSearchProduct } from "../../redux/Product/ProductAction";
+import { fetchProduct } from "../../redux/Product/ProductAction";
 import "./Style.css";
 
-function ProductCard(search) {
+function ProductCard() {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchSearchProduct(search)(dispatch);
-  }, [search, dispatch]);
+    fetchProduct()(dispatch);
+  }, [dispatch]);
 
   const productsInfo = useSelector((state) => state.products);
 
   return productsInfo.loading ? (
-    <h2>Loading</h2>
+    <Spinner animation="border" variant="primary" />
   ) : productsInfo.error ? (
     <h2>{productsInfo.error}</h2>
   ) : (
@@ -34,7 +35,7 @@ function ProductCard(search) {
             productsInfo.products.data.products &&
             productsInfo.products.data.products.map((product) => (
               <Row className="card-space">
-                <Col xs={12} md={3} lg={3}>
+                <Col xs={12} md={3} lg={4}>
                   <Card style={{ width: "12rem" }}>
                     <Card.Img
                       variant="top"
@@ -43,7 +44,6 @@ function ProductCard(search) {
                     />
                     <Card.Body>
                       <Card.Title>{product.name}</Card.Title>
-                      <Card.Text>{product.description}</Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                       <ListGroupItem>Price: {product.price} VND</ListGroupItem>

@@ -10,7 +10,7 @@ const NavbarTiktak = () => {
           <Nav className="me-auto">
             <Nav.Link href="/products">All Products</Nav.Link>
             <Nav.Link href="./Register">Register</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="./cart">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

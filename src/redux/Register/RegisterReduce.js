@@ -1,19 +1,34 @@
-// import { LOGIN, REGISTER } from "./RegisterType";
-// const initialState = { name: "", email: "", password: "" };
-// function RegisterReduce(state = initialState, action) {
-//   switch (action.type) {
-//     case REGISTER:
-//       return {
-//         ...state,
-//         name: action.payload.name,
-//         email: action.payload.email,
-//         password: action.payload.password,
-//       };
-//     case LOGIN:
-//       return { ...state };
-//     default:
-//       return state;
-//   }
-// }
+import {
+  REGISTER_FAIL,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+} from "./RegisterType";
 
-// export default RegisterReduce;
+const initialState = {
+  loading: false,
+  user: [],
+  error: "",
+};
+
+function RegisterUserReducer(state = initialState, action) {
+  switch (action.type) {
+    case REGISTER_REQUEST:
+      return { ...state, loading: true };
+    case REGISTER_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload,
+        error: "",
+      };
+    case REGISTER_FAIL:
+      return {
+        loading: false,
+        products: [],
+        error: action.error,
+      };
+    default:
+      return state;
+  }
+}
+
+export default RegisterUserReducer;

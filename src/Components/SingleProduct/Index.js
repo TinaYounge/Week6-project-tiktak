@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import { Card, Button, Row, Col, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../../redux/Product/ProductAction";
 
@@ -34,7 +34,9 @@ function DetailProduct(id) {
       </Row>
     </div>
   ) : (
-    <h2>Sorry! We are updating!</h2>
+    <center>
+      <Spinner animation="border" variant="primary" />
+    </center>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { UserForm } from "../../redux/Register/RegisterAction";
+import { registerUser } from "../../redux/Register/RegisterAction";
 
 function RegisterForm() {
   const [state, setState] = useState({
@@ -49,7 +49,7 @@ function RegisterForm() {
         <Button
           variant="primary"
           type="submit"
-          onClick={() => dispatch(UserForm(state))}
+          onClick={() => dispatch(registerUser(state))}
         >
           Submit
         </Button>

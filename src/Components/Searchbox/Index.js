@@ -7,9 +7,7 @@ function SearchBox() {
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("");
-  useEffect(() => {
-    fetchSearchProduct(search)(dispatch);
-  }, [dispatch, search]);
+
   return (
     <Container>
       <Form>

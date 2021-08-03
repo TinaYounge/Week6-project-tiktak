@@ -23,22 +23,23 @@ export const fetchProductFail = () => {
   };
 };
 
-// export const fetchProduct = () => {
-//   return (dispatch) => {
-//     dispatch(fetchProductRequest);
-//     axios
-//       .get("http://cs-ecom-be.herokuapp.com/api/products")
-//       .then((response) => {
-//         const product = response.data;
-//         dispatch(fetchProductSuccess(product));
-//       })
-//       .catch((Error) => {
-//         const errorMge = Error.message;
-//         console.log("n", errorMge);
-//         dispatch(fetchProductFail(errorMge));
-//       });
-//   };
-// };
+export const fetchProduct = (page) => {
+  console.log("actionredux", page);
+  return (dispatch) => {
+    dispatch(fetchProductRequest);
+    axios
+      .get(`http://cs-ecom-be.herokuapp.com/api/products?page=${page}`)
+      .then((response) => {
+        const product = response.data;
+        dispatch(fetchProductSuccess(product));
+      })
+      .catch((Error) => {
+        const errorMge = Error.message;
+        console.log("n", errorMge);
+        dispatch(fetchProductFail(errorMge));
+      });
+  };
+};
 
 export const fetchSearchProduct = (search) => {
   return (dispatch) => {
