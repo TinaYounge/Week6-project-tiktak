@@ -4,6 +4,7 @@ import {
   REGISTER_SUCCESS,
 } from "./RegisterType";
 import api from "../../apiService";
+// import { Toast } from "../../Components/Toast";
 
 export const registerRequest = () => {
   return {
@@ -35,9 +36,10 @@ export const registerUser = (state) => {
           email: state.email,
           password: state.password,
         });
-        console.log("register inhere", state);
         const data = await res.data;
         dispatch(registerSuccess(data));
+        // alert(data.message);
+        // <Toast />;
       } catch (Error) {
         const errorMge = Error.message;
         console.log("register post", errorMge);

@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AllProducts from "./pages/AllProducts";
 import SingleProduct from "./pages/SingleProduct";
 import Homepage from "./pages/Homepage";
-import Register from "./pages/Register";
 import Cart from "./pages/Cart";
+import Register from "./pages/Register/Index";
 
 function App() {
   return (

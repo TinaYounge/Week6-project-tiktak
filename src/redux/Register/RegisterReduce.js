@@ -17,13 +17,13 @@ function RegisterUserReducer(state = initialState, action) {
     case REGISTER_SUCCESS:
       return {
         loading: false,
-        products: action.payload,
+        user: action.payload,
         error: "",
       };
     case REGISTER_FAIL:
       return {
         loading: false,
-        products: [],
+        user: [],
         error: action.error,
       };
     default:

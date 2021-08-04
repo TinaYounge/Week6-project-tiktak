@@ -27,8 +27,8 @@ function ProductCard() {
     <h2>{productsInfo.error}</h2>
   ) : (
     <div>
-      <Container>
-        <CardGroup className="flex">
+      <Container className="card-deck">
+        <CardGroup className="card-deck">
           {productsInfo &&
             productsInfo.products &&
             productsInfo.products.data &&
@@ -36,7 +36,7 @@ function ProductCard() {
             productsInfo.products.data.products.map((product) => (
               <Row className="card-space">
                 <Col xs={12} md={3} lg={4}>
-                  <Card style={{ width: "12rem" }}>
+                  <Card className="space" style={{ width: "12rem" }}>
                     <Card.Img
                       variant="top"
                       src={product.imageUrls[0]}
