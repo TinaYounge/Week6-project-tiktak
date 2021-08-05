@@ -1,30 +1,20 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Nav } from "react-bootstrap";
-import CardHeader from "react-bootstrap/esm/CardHeader";
+import { Button, Form, Nav } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { loginUser } from "../../redux/Login/LoginAction";
 import { registerUser } from "../../redux/Register/RegisterAction";
-
-function RegisterForm() {
+import "./Style.css";
+function LoginForm() {
   const [state, setState] = useState({
-    name: "",
     email: "",
     password: "",
   });
   const dispatch = useDispatch();
   return (
     <div>
-      <h2 className="d-flex justify-content-center">Tiktak</h2>
+      <h2 className="d-flex justify-content-center blue">Tiktak</h2>
       <div className="d-flex justify-content-center">
         <Form className="">
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter name"
-              value={state.name}
-              onChange={(e) => setState({ ...state, name: e.target.value })}
-            />
-          </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -37,7 +27,6 @@ function RegisterForm() {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -53,12 +42,11 @@ function RegisterForm() {
           ></Form.Group>
           <div className="d-grid gap-2">
             <Button
-              // className="d-grid gap-2"
               size="lg"
               variant="primary"
-              onClick={() => dispatch(registerUser(state))}
+              onClick={() => dispatch(loginUser(state))}
             >
-              Register
+              Log-in
             </Button>
           </div>
         </Form>
@@ -66,11 +54,11 @@ function RegisterForm() {
       <br />
       <div className="d-flex justify-content-center">
         <p>
-          Already have an account?<Nav.Link href="./login">Log-in</Nav.Link>
+          New to TikTak?<Nav.Link href="./Register">Register</Nav.Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default RegisterForm;
+export default LoginForm;

@@ -1,9 +1,4 @@
-import { registerUser } from "./RegisterAction";
-import {
-  REGISTER_FAIL,
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-} from "./RegisterType";
+import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./LoginType";
 
 const initialState = {
   loading: false,
@@ -11,17 +6,17 @@ const initialState = {
   error: "",
 };
 
-function RegisterUserReducer(state = initialState, action) {
+function loginUserReducer(state = initialState, action) {
   switch (action.type) {
-    case REGISTER_REQUEST:
+    case LOGIN_REQUEST:
       return { ...state, loading: true };
-    case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         loading: false,
         user: action.payload,
         error: "",
       };
-    case REGISTER_FAIL:
+    case LOGIN_FAIL:
       return {
         loading: false,
         user: [],
@@ -32,4 +27,4 @@ function RegisterUserReducer(state = initialState, action) {
   }
 }
 
-export default RegisterUserReducer;
+export default loginUserReducer;

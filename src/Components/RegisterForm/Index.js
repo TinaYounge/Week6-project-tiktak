@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Card, Form, Nav } from "react-bootstrap";
-import CardHeader from "react-bootstrap/esm/CardHeader";
+import { Button, Form, Nav } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../redux/Register/RegisterAction";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import "./Style.css";
 function RegisterForm() {
   const [state, setState] = useState({
     name: "",
@@ -13,7 +14,7 @@ function RegisterForm() {
   const dispatch = useDispatch();
   return (
     <div>
-      <h2 className="d-flex justify-content-center">Tiktak</h2>
+      <h2 className="d-flex justify-content-center blue">Tiktak</h2>
       <div className="d-flex justify-content-center">
         <Form className="">
           <Form.Group className="mb-3" controlId="formBasicName">
@@ -53,7 +54,6 @@ function RegisterForm() {
           ></Form.Group>
           <div className="d-grid gap-2">
             <Button
-              // className="d-grid gap-2"
               size="lg"
               variant="primary"
               onClick={() => dispatch(registerUser(state))}

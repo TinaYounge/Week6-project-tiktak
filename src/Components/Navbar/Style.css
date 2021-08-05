@@ -1,0 +1,5 @@
+.hover:hover {
+  background-color: rgb(46, 152, 240);
+  /* transform: scale(1.05); */
+  transition: 0.25s;
+}

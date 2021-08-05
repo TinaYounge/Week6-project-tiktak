@@ -1,13 +1,3 @@
-.flex {
-  display: flex;
-}
-.card-space {
-  justify-content: space-between !important;
-}
-.space {
-  margin-top: 20px !important;
-  margin-left: 20px !important;
-}
 .card-tiktak {
   box-shadow: 0 2px 20px gray;
   overflow: hidden;
@@ -15,4 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+}
+.margin-top {
+  margin-top: 50px !important;
 }

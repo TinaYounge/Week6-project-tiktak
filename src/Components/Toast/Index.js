@@ -3,12 +3,17 @@ import { Col, Row, Spinner, Toast } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function ToastTiktak() {
+  const allState = useSelector((state) => state);
+  const mode = allState.toast.state.mode;
+  console.log("check", mode);
+  console.log(typeof mode);
+
   const registerInfo = useSelector((state) => state.register);
+
+  // console.log("state", registerInfo1);
   const [showA, setShowA] = useState(true);
   const toggleShowA = () => setShowA(!showA);
-  useEffect(() => {
-    toggleShowA();
-  }, [registerInfo]);
+
   return registerInfo.loading ? (
     <Spinner animation="border" variant="primary" />
   ) : registerInfo.error === undefined ? (

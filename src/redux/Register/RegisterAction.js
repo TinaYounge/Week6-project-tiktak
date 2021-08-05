@@ -4,8 +4,7 @@ import {
   REGISTER_SUCCESS,
 } from "./RegisterType";
 import api from "../../apiService";
-// import { Toast } from "../../Components/Toast";
-
+import { toastFail, toastSuccess } from "../Toast/ToastAction";
 export const registerRequest = () => {
   return {
     type: REGISTER_REQUEST,
@@ -38,12 +37,12 @@ export const registerUser = (state) => {
         });
         const data = await res.data;
         dispatch(registerSuccess(data));
-        // alert(data.message);
-        // <Toast />;
+        dispatch(toastSuccess({ mode: "register" }));
       } catch (Error) {
         const errorMge = Error.message;
         console.log("register post", errorMge);
         dispatch(registerFail(errorMge));
+        dispatch(toastFail(errorMge));
       }
     };
     getRegisterResponse();
