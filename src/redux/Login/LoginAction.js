@@ -1,5 +1,6 @@
 import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./LoginType";
 import api from "../../apiService";
+import { toastFail, toastSuccess } from "../Toast/ToastAction";
 
 export const loginRequest = () => {
   return {
@@ -31,15 +32,15 @@ export const loginUser = (state) => {
         });
         const data = await res.data;
         dispatch(loginSuccess(data));
+        dispatch(toastSuccess({ mode: "login", name: data.data.user.name }));
         console.log("data", data);
         api.defaults.headers.common["authorization"] =
           "Bearer " + data.data.accessToken;
-        alert("Login success");
-        console.log("loginsuceess", data.data.accessToken);
       } catch (Error) {
         const errorMge = Error.message;
         console.log("login post", errorMge);
         dispatch(loginFail(errorMge));
+        dispatch(toastFail(errorMge));
       }
     };
     getLoginResponse();

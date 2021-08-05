@@ -1,4 +1,3 @@
-import { registerUser } from "./RegisterAction";
 import {
   REGISTER_FAIL,
   REGISTER_REQUEST,

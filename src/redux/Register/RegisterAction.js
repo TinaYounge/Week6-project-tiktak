@@ -37,7 +37,7 @@ export const registerUser = (state) => {
         });
         const data = await res.data;
         dispatch(registerSuccess(data));
-        dispatch(toastSuccess({ mode: "register" }));
+        dispatch(toastSuccess({ mode: "register", name: state.name }));
       } catch (Error) {
         const errorMge = Error.message;
         console.log("register post", errorMge);

@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Col, Row, Spinner, Toast } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function ToastTiktak() {
-  const allState = useSelector((state) => state);
-  const mode = allState.toast.state.mode;
-  console.log("check", mode);
-  console.log(typeof mode);
+  const toastState = useSelector((state) => state.toast);
+  console.log("check", toastState);
+  console.log("jahhahahaaaaaaaaaa");
 
-  const registerInfo = useSelector((state) => state.register);
-
-  // console.log("state", registerInfo1);
   const [showA, setShowA] = useState(true);
   const toggleShowA = () => setShowA(!showA);
 
-  return registerInfo.loading ? (
+  return toastState.loading ? (
     <Spinner animation="border" variant="primary" />
-  ) : registerInfo.error === undefined ? (
+  ) : toastState.error === undefined ? (
     <div>
       <Row>
         <Col xs={12}>
@@ -27,9 +23,7 @@ function ToastTiktak() {
                 className="rounded me-2"
                 alt=""
               />
-              <strong className="me-auto text-white">
-                Please, register again!
-              </strong>
+              <strong className="me-auto text-white">Please, do again!</strong>
             </Toast.Header>
             {/* <Toast.Body className="text-white">
             Welcome to Tiktak, {registerInfo.user.data.user.name}!
@@ -38,7 +32,9 @@ function ToastTiktak() {
         </Col>
       </Row>
     </div>
-  ) : registerInfo.user.message ? (
+  ) : toastState.state.mode === undefined ? (
+    <h2></h2>
+  ) : (
     <div>
       <Row>
         <Col xs={12}>
@@ -50,7 +46,7 @@ function ToastTiktak() {
                 alt=""
               />
               <strong className="me-auto text-white">
-                Welcome to Tiktak, {registerInfo.user.data.user.name}!
+                Welcome to Tiktak, {toastState.state.name}!
               </strong>
             </Toast.Header>
             {/* <Toast.Body className="text-white">
@@ -60,8 +56,6 @@ function ToastTiktak() {
         </Col>
       </Row>
     </div>
-  ) : (
-    <h2></h2>
   );
 }
 
